@@ -33,7 +33,7 @@ export default function DebuggingChaos() {
           
           // Populate logs
           let delay = 0;
-          fakeLogs.forEach((log, index) => {
+          fakeLogs.forEach((log) => {
             setTimeout(() => {
               setLogs(prev => [...prev, log]);
             }, delay);

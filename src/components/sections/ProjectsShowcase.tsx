@@ -61,7 +61,7 @@ export default function ProjectsShowcase() {
 
         <Grid container spacing={4}>
           {projects.map((item) => (
-            <Grid item xs={12} md={4} key={item.id} className="project-card">
+            <Grid size={{ xs: 12, md: 4 }} key={item.id} className="project-card">
               <motion.div
                 layoutId={`card-container-${item.id}`}
                 onClick={() => setSelectedId(item.id)}

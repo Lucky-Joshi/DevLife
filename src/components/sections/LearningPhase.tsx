@@ -77,7 +77,7 @@ export default function LearningPhase() {
 
           <Grid container spacing={6} ref={timelineRef}>
             {learningItems.map((item, index) => (
-              <Grid item xs={12} md={6} key={index} 
+              <Grid size={{ xs: 12, md: 6 }} key={index} 
                 sx={{ 
                   ml: { xs: '50px', md: index % 2 === 0 ? 'auto' : 0 },
                   mr: { xs: 0, md: index % 2 !== 0 ? 'auto' : 0 },
