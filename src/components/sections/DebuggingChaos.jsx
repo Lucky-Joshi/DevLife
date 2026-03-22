@@ -15,7 +15,7 @@ export default function DebuggingChaos() {
   
   // Terminal State
   const [terminalInput, setTerminalInput] = useState('');
-  const [terminalLogs, setTerminalLogs] = useState<{text: string, type: 'in' | 'out'}[]>([
+  const [terminalLogs, setTerminalLogs] = useState([
     { text: 'DevOS Terminal v1.0.0', type: 'out' },
     { text: 'Type a command to interact...', type: 'out' }
   ]);
@@ -30,7 +30,7 @@ export default function DebuggingChaos() {
     return () => ctx.revert();
   }, []);
 
-  const handleTerminalSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleTerminalSubmit = (e) => {
     if (e.key === 'Enter' && terminalInput.trim()) {
       const input = terminalInput.trim().toLowerCase();
       let response = '';

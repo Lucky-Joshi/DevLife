@@ -47,7 +47,7 @@ export default function LearningPhase() {
     return () => ctx.revert();
   }, []);
 
-  const handleUnlock = (id: number) => {
+  const handleUnlock = (id) => {
     if (unlockedSkills === id - 1) {
       setUnlockedSkills(id);
     }

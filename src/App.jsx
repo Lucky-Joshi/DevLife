@@ -14,6 +14,7 @@ import ProjectsShowcase from './components/sections/ProjectsShowcase';
 import FinaleSection from './components/sections/FinaleSection';
 import ThreeBackground from './components/ThreeBackground';
 import { StoryProvider, useStory } from './context/StoryContext';
+import MusicPlayer from './components/MusicPlayer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +56,7 @@ function MainApp() {
   return (
     <>
       <ThreeBackground />
+      <MusicPlayer />
       <HeroSection />
       <LearningPhase />
       <DebuggingChaos />

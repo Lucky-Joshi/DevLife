@@ -29,12 +29,27 @@ const projects = [
     desc: 'Complex data crawlers and trading algorithms written in Rust.',
     color: '#27c93f',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    id: 'e-commerce',
+    title: 'E-Commerce Platform',
+    desc: 'Scalable microservices handling thousands of transactions.',
+    color: '#ff3366',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    id: 'data-viz',
+    title: 'Data Viz Dashboard',
+    desc: 'Real-time WebGL rendering of complex global datasets.',
+    color: '#2965f1',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop'
   }
 ];
 
 export default function ProjectsShowcase() {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [selectedId, setSelectedId] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const sectionRef = useRef(null);
   
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -80,9 +95,15 @@ export default function ProjectsShowcase() {
             <Grid size={{ xs: 12, md: 4 }} key={item.id} className="project-card">
               <motion.div
                 layoutId={`card-container-${item.id}`}
-                onClick={() => setSelectedId(item.id)}
+                onClick={() => !isDragging && setSelectedId(item.id)}
                 whileHover={{ y: -10, scale: 1.02 }}
-                style={{ cursor: 'pointer', height: '100%' }}
+                drag
+                dragConstraints={sectionRef}
+                dragElastic={0.5}
+                onDragStart={() => setIsDragging(true)}
+                onDragEnd={() => setTimeout(() => setIsDragging(false), 150)}
+                whileDrag={{ scale: 1.05, rotate: Math.random() > 0.5 ? 2 : -2, zIndex: 50, cursor: 'grabbing' }}
+                style={{ cursor: 'grab', height: '100%', position: 'relative' }}
               >
                 <Card sx={{ height: '100%', bgcolor: '#151515', border: `1px solid ${item.color}33`, p: 2 }}>
                   <motion.div layoutId={`card-image-container-${item.id}`}>

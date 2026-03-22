@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { useStory } from '../../context/StoryContext';
 
 export default function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef(null);
   const { unlockedHero, setUnlockedHero } = useStory();
   const [inputVal, setInputVal] = useState('');
   const [errorShake, setErrorShake] = useState(false);
@@ -14,7 +14,7 @@ export default function HeroSection() {
   // Fallback sound if URL doesn't exist, we can just use empty or simple beep logic
   // For safety without external assets, we will not strictly require the sound file to load
 
-  const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleSubmit = (e) => {
     if (e.key === 'Enter') {
       if (inputVal.trim() === 'console.log("Hello World")') {
         setUnlockedHero(true);

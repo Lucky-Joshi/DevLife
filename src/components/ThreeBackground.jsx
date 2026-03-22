@@ -4,7 +4,7 @@ import { Icosahedron, MeshDistortMaterial, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 function AnimatedShape() {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef(null);
 
   useFrame((state) => {
     if (meshRef.current) {

@@ -4,7 +4,7 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function FinaleSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-200px" });
   const mainControls = useAnimation();
 
