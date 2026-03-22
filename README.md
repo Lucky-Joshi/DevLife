@@ -6,7 +6,7 @@
 
 ## ✨ Live Demo
 
-Run locally with `npm run dev` → open [http://localhost:5173](http://localhost:5173)
+🔗 [Click Here](https://dev-life-eight.vercel.app/)
 
 ---
 
