@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function FinaleSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,7 +25,7 @@ export default function FinaleSection() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        bgcolor: '#050505',
+        bgcolor: 'transparent',
         overflow: 'hidden',
         textAlign: 'center'
       }}
@@ -50,51 +51,97 @@ export default function FinaleSection() {
         animate={mainControls}
         style={{ zIndex: 1 }}
       >
-        <Typography variant="h1" sx={{ color: '#fff', fontWeight: 800, mb: 2, fontSize: { xs: '3rem', md: '5rem' } }}>
-          You are now a
+        <Typography variant="h2" sx={{ color: '#00f0ff', fontWeight: 800, mb: 1, fontSize: { xs: '2.5rem', md: '3.75rem' }, textAlign: 'center' }}>
+          The Transformation
         </Typography>
-        <Typography 
-          variant="h1" 
-          sx={{ 
-            background: 'linear-gradient(45deg, #00f0ff 30%, #bc13fe 90%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontWeight: 800,
-            fontSize: { xs: '4rem', md: '6rem' }
-          }}
-        >
-          DEVELOPER
-        </Typography>
+        
+        <Box sx={{ minHeight: '120px', mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Typography align="center" variant="h4" sx={{ color: '#bc13fe', fontFamily: '"Fira Code", monospace', minHeight: '60px', fontSize: { xs: '1.2rem', md: '2.125rem' }, px: 2 }}>
+            <TypeAnimation
+              sequence={[
+                'The late nights...', 1000,
+                'The errors...', 1000,
+                'The frustration...', 1000,
+              ]}
+              wrapper="span"
+              speed={50}
+              cursor={false}
+            />
+          </Typography>
+          
+          <motion.div
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { delay: 4, duration: 2 } }
+            }}
+            initial="hidden"
+            animate={mainControls}
+          >
+            <Typography align="center" variant="h5" sx={{ color: 'text.secondary', fontStyle: 'italic', mt: 4 }}>
+              "It was all part of the journey.<br/>You didn't just learn to code..."
+            </Typography>
+            <Typography align="center" variant="h4" sx={{ color: 'text.primary', fontWeight: 'bold', mt: 1 }}>
+              You became a developer.
+            </Typography>
+          </motion.div>
+        </Box>
 
         <motion.div
           variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0, transition: { delay: 1, duration: 1 } }
+            hidden: { opacity: 0, scale: 0.9 },
+            visible: { opacity: 1, scale: 1, transition: { delay: 6.5, duration: 2 } }
           }}
           initial="hidden"
           animate={mainControls}
         >
-          <Typography variant="h5" sx={{ color: 'text.secondary', mt: 4, mb: 8, maxWidth: '600px', mx: 'auto' }}>
-            The bugs never truly disappear, but your ability to conquer them becomes legendary.
+          <Typography 
+            variant="h1" 
+            sx={{ 
+              background: 'linear-gradient(45deg, #00f0ff 30%, #bc13fe 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontWeight: 800,
+              fontSize: { xs: '2rem', md: '4rem' },
+              mb: 4,
+              textAlign: 'center'
+            }}
+          >
+            Welcome to the world of builders.
           </Typography>
+        </motion.div>
+
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0, transition: { delay: 8, duration: 1 } }
+          }}
+          initial="hidden"
+          animate={mainControls}
+        >
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', mb: 8, color: '#00f0ff', fontFamily: '"Fira Code", monospace', fontSize: '1.2rem' }}>
+            <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Bugs fixed: ∞</Typography>
+            <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Coffee consumed: ☕☕☕☕☕</Typography>
+            <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Sleep lost: Yes</Typography>
+          </Box>
 
           <Button 
             variant="outlined" 
             size="large"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.location.reload()}
             sx={{ 
-              borderColor: '#00f0ff', 
-              color: '#00f0ff',
+              color: '#00f0ff', 
+              borderColor: '#00f0ff',
+              fontFamily: '"Fira Code", monospace',
+              borderWidth: 2,
               '&:hover': {
+                borderWidth: 2,
+                bgcolor: 'rgba(0, 240, 255, 0.1)',
                 borderColor: '#bc13fe',
-                bgcolor: 'rgba(188,19,254,0.1)'
-              },
-              px: 4, py: 1.5,
-              fontSize: '1.2rem',
-              borderRadius: '50px'
+                color: '#bc13fe'
+              }
             }}
           >
-            Start Another Project
+            Start Again
           </Button>
         </motion.div>
       </motion.div>

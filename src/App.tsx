@@ -7,18 +7,28 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import theme from './theme';
 import './index.css';
 
-// Sections
 import HeroSection from './components/sections/HeroSection';
 import LearningPhase from './components/sections/LearningPhase';
 import DebuggingChaos from './components/sections/DebuggingChaos';
 import ProjectsShowcase from './components/sections/ProjectsShowcase';
 import FinaleSection from './components/sections/FinaleSection';
+import ThreeBackground from './components/ThreeBackground';
+import { StoryProvider, useStory } from './context/StoryContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+function MainApp() {
+  const { unlockedHero } = useStory();
+
   useEffect(() => {
-    // Initialize Lenis
+    // Only enable scroll if Hero is unlocked!
+    if (!unlockedHero) {
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+
+    document.body.style.overflow = 'auto';
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -38,17 +48,29 @@ function App() {
 
     return () => {
       lenis.destroy();
+      document.body.style.overflow = 'auto';
     };
-  }, []);
+  }, [unlockedHero]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <>
+      <ThreeBackground />
       <HeroSection />
       <LearningPhase />
       <DebuggingChaos />
       <ProjectsShowcase />
       <FinaleSection />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <StoryProvider>
+        <MainApp />
+      </StoryProvider>
     </ThemeProvider>
   );
 }

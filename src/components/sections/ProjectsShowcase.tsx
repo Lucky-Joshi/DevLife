@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Box, Typography, Container, Grid, Card, CardContent, CardMedia, IconButton, Modal, Backdrop, Fade } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 import { X, ExternalLink, Github } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -53,11 +54,26 @@ export default function ProjectsShowcase() {
   }, []);
 
   return (
-    <Box ref={sectionRef} component="section" sx={{ minHeight: '100vh', py: 15, bgcolor: '#0a0a0a' }}>
+    <Box ref={sectionRef} component="section" sx={{ minHeight: '100vh', py: 15, bgcolor: 'rgba(10, 10, 10, 0.5)' }}>
       <Container>
-        <Typography variant="h2" align="center" gutterBottom sx={{ color: '#ffffff', mb: 8 }}>
-          Real Projects
+        <Typography variant="h2" align="center" gutterBottom sx={{ color: '#00f0ff', mb: 2, fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.75rem' } }}>
+          The Growth
         </Typography>
+
+        <Box sx={{ minHeight: '60px', mb: 8, display: 'flex', justifyContent: 'center' }}>
+          <Typography align="center" variant="h5" sx={{ color: '#bc13fe', fontFamily: '"Fira Code", monospace', fontSize: { xs: '1rem', md: '1.5rem' }, px: 2 }}>
+            <TypeAnimation
+              sequence={[
+                'Somewhere between the bugs... you start understanding.', 1500,
+                'You stop copying...', 1000,
+                'You start creating.', 2000
+              ]}
+              wrapper="span"
+              speed={50}
+              cursor={false}
+            />
+          </Typography>
+        </Box>
 
         <Grid container spacing={4}>
           {projects.map((item) => (
@@ -140,17 +156,27 @@ export default function ProjectsShowcase() {
                           <X />
                         </IconButton>
                       </Box>
-                      <Box sx={{ p: 4 }}>
+                      <Box sx={{ p: { xs: 2, md: 4 } }}>
                         <motion.div layoutId={`card-title-${item.id}`}>
-                          <Typography variant="h3" sx={{ color: item.color, fontWeight: 800, mb: 2 }}>
+                          <Typography variant="h3" sx={{ color: item.color, fontWeight: 800, mb: 2, fontSize: { xs: '1.5rem', md: '3rem' } }}>
                             {item.title}
                           </Typography>
                         </motion.div>
-                        <Typography variant="h6" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8 }}>
-                          This project represents a crucial milestone on the developer journey. 
-                          Built with modern tools to solve complex constraints seamlessly. The architectural 
-                          decisions made here paved the way for future scalable applications.
-                        </Typography>
+                        <Box sx={{ mt: 4, display: 'flex', flexDirection: 'column', mb: 4, minHeight: '100px' }}>
+                          <Typography variant="h6" sx={{ color: '#00f0ff', fontStyle: 'italic', fontFamily: '"Fira Code", monospace' }}>
+                            <TypeAnimation
+                              key={item.id}
+                              sequence={[
+                                'This isn\'t just code anymore...', 1000,
+                                'This is something you built.', 1000,
+                                'Something that works.', 2000
+                              ]}
+                              wrapper="span"
+                              speed={50}
+                              cursor={false}
+                            />
+                          </Typography>
+                        </Box>
                         
                         <Box sx={{ display: 'flex', gap: 2 }}>
                           <IconButton sx={{ color: 'white', border: '1px solid #333' }}>
