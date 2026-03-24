@@ -1,5 +1,10 @@
 # 🧑‍💻 The Life of a Developer
 
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-fast-purple)
+![GSAP](https://img.shields.io/badge/GSAP-animations-green)
+![Framer Motion](https://img.shields.io/badge/FramerMotion-smooth-pink)
+
 > *An Awwwards-level interactive storytelling web experience that narrates the emotional and technical journey of a developer — from their first "Hello World" to becoming a builder.*
 
 ---
@@ -16,13 +21,13 @@
 
 ## ✨ Live Demo
 
-🔗 [Click Here](https://dev-life-eight.vercel.app/)
+🔗 [Experience the Story Live](https://dev-life-eight.vercel.app/)
 
 ---
 
 ## 📸 Preview
 
-> Add screenshots to `./screenshots/` folder to populate the preview below.
+
 
 ![Hero Section](./screenshots/hero.png)
 ![Debugging Challenge](./screenshots/debug.png)
@@ -100,6 +105,16 @@ The experience is divided into **5 cinematic scenes**, each unlocked through int
 
 ---
 
+## 🎯 Key Interactive Moments
+
+- ✍️ Type your first line of code to begin the journey
+- 🧩 Progress through a skill unlock system
+- 🐛 Fix a real bug in a live debugging challenge
+- 💻 Interact with a simulated developer terminal
+- 🧱 Drag and explore project cards dynamically
+
+---
+
 ## 🎨 Design Decisions
 
 - **Dark theme** to reflect real developer environments and reduce cognitive load
@@ -115,6 +130,15 @@ The experience is divided into **5 cinematic scenes**, each unlocked through int
 - Maintaining 60fps performance with Three.js 3D canvas and multiple Framer Motion animations running simultaneously
 - Designing interactions that are meaningful and story-driven, not gimmicky
 - Ensuring full responsiveness across all devices without breaking scroll-linked animations
+
+---
+
+## ⚡ Performance Optimization
+
+- GSAP lag smoothing for consistent animation timing
+- Lenis-powered smooth scrolling for fluid experience
+- Optimized Three.js rendering to minimize GPU load
+- Efficient component structure to prevent unnecessary re-renders
 
 ---
 
@@ -214,3 +238,8 @@ src/
 ## 👨‍💻 Author
 
 Built with ❤️, caffeine ☕, and countless debugging sessions by **Lucky Joshi**
+
+---
+
+> "You don't just learn to code…
+> you become a developer."
